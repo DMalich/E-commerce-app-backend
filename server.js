@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const pizzaModel = require("./models/pizzaModel.js");
 const pizzasRoute = require("./routes/pizzaRoute.js");
@@ -9,7 +10,7 @@ const orderRoute = require("./routes/orderRoute.js");
 
 
 const MONGODB_URI =
-    "mongodb+srv://mongo:24dmdm24@cluster0.swvnicn.mongodb.net/e-commerce-pizza";
+    `mongodb+srv://mongo:${process.env.MONGO_PASSWORD}@cluster0.swvnicn.mongodb.net/e-commerce-pizza`;
 mongoose
     .connect(MONGODB_URI)
     .then(() => {
